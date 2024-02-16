@@ -3,8 +3,11 @@ import base64
 from elasticsearch import Elasticsearch
 from schema import Tracing_pb2
 import pandas as pd
+from dotenv import load_dotenv
+import os
 
-ELASTIC_SEARCH_HOST = Elasticsearch('http://3.94.54.180:30092')
+load_dotenv
+ELASTIC_SEARCH_HOST = Elasticsearch(os.getenv("ES_HOST"))
 
 
 def convert_protobuf_to_dict(pb_obj):
